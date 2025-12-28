@@ -5,226 +5,242 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ken, what kind of Barbie do you unlock today? 💖</title>
   <meta name="description" content="A Barbie-core daily vibe check for Ken." />
+
   <style>
     :root{
-      --bg1:#ffe6f4;
-      --bg2:#efe6ff;
-      --card: rgba(255,255,255,.72);
-      --stroke: rgba(255,255,255,.65);
+      --pink:#ff5fa2;
+      --pink2:#ff86bd;
+      --purple:#9b7bff;
+      --bg1:#ffeaf6;
+      --bg2:#efe7ff;
+      --card: rgba(255,255,255,.78);
+      --stroke: rgba(255,255,255,.72);
       --text:#2a1033;
-      --muted:#6b3a7a;
-      --pink:#ff4fa3;
-      --purple:#8a4dff;
-      --shadow: 0 18px 55px rgba(45, 10, 70, .16);
-      --radius: 22px;
+      --muted:#7a4a8a;
+      --shadow: 0 18px 60px rgba(45,10,70,.14);
+      --radius: 26px;
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(1000px 620px at 15% 10%, rgba(255,79,163,.28), transparent 55%),
-        radial-gradient(1000px 620px at 85% 20%, rgba(138,77,255,.26), transparent 55%),
+        radial-gradient(1100px 680px at 15% 10%, rgba(255,95,162,.30), transparent 55%),
+        radial-gradient(1100px 680px at 85% 20%, rgba(155,123,255,.25), transparent 55%),
         linear-gradient(135deg, var(--bg1), var(--bg2));
+      min-height:100vh;
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding:20px;
+      padding:22px;
     }
-    .wrap{
-      width:min(760px, 100%);
-      display:grid;
-      gap:14px;
-    }
+
+    .wrap{width:min(860px,100%); display:grid; gap:14px;}
+
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:10px;
       padding:12px 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.52);
-      border: 1px solid var(--stroke);
-      box-shadow: 0 12px 28px rgba(45,10,70,.10);
+      border-radius: 20px;
+      background: rgba(255,255,255,.55);
+      border:1px solid var(--stroke);
+      box-shadow: 0 10px 28px rgba(45,10,70,.10);
       backdrop-filter: blur(12px);
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
+
+    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
     .logo{
-      width:38px;height:38px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(255,79,163,.95), rgba(138,77,255,.95));
+      width:42px;height:42px;border-radius:16px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
       display:grid;place-items:center;
-      box-shadow: 0 14px 24px rgba(138,77,255,.18);
+      box-shadow: 0 14px 26px rgba(255,95,162,.16);
       flex:0 0 auto;
     }
-    .logo span{font-size:18px; filter: drop-shadow(0 10px 12px rgba(0,0,0,.12));}
+    .logo span{font-size:20px; filter: drop-shadow(0 8px 10px rgba(0,0,0,.10));}
     .brand h1{
-      font-size:14px;
       margin:0;
-      line-height:1.15;
+      font-size:14.5px;
+      letter-spacing:-0.01em;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      letter-spacing:-0.01em;
     }
     .brand p{
       margin:2px 0 0;
-      color:var(--muted);
       font-size:12px;
+      color:var(--muted);
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
+
     .pill{
-      padding:7px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid var(--stroke);
-      font-size:12px;
+      display:flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.70);
+      border:1px solid var(--stroke);
       color:var(--muted);
-      display:flex;
-      align-items:center;
-      gap:8px;
+      font-size:12px;
       flex:0 0 auto;
     }
     .dot{
       width:9px;height:9px;border-radius:999px;
       background: linear-gradient(135deg, var(--pink), var(--purple));
-      box-shadow: 0 0 0 4px rgba(255,79,163,.10);
+      box-shadow: 0 0 0 4px rgba(255,95,162,.12);
     }
 
     .card{
-      border-radius: var(--radius);
       background: var(--card);
       border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 22px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(14px);
-      padding: 20px;
+      position:relative;
+      overflow:hidden;
     }
 
-    /* Minimal home */
+    /* subtle glow bubble */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-120px auto auto -120px;
+      width:260px;height:260px;border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,95,162,.25), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(155,123,255,.22), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    /* Sticker images */
+    .stickerWrap{
+      display:flex;
+      justify-content:center;
+      margin: 4px 0 14px;
+    }
+    .sticker{
+      width:min(300px, 76%);
+      height:auto;
+      border-radius: 18px;
+      filter: drop-shadow(0 18px 26px rgba(45,10,70,.18));
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    /* Home */
     .homeTitle{
-      font-size:28px;
-      line-height:1.1;
-      margin:0 0 8px;
+      font-size:32px;
+      line-height:1.05;
+      margin:0 0 10px;
       letter-spacing:-0.02em;
+      text-align:center;
     }
     .homeSub{
-      margin:0 0 14px;
+      margin:0 auto 14px;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
+      font-size:14.5px;
+      line-height:1.55;
+      max-width: 68ch;
+      text-align:center;
     }
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+
+    .cuteChips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0; justify-content:center;}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--stroke);
+      font-size:12px;
+      color:var(--muted);
+      width:fit-content;
     }
+    .chip b{color:#3a1247;}
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:center; margin-top:14px;}
     .btn{
       border:0;
       cursor:pointer;
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight:800;
-      font-size:14px;
-      color:#fff;
+      border-radius:999px;
+      padding:12px 18px;
       background: linear-gradient(135deg, var(--pink), var(--purple));
-      box-shadow: 0 14px 24px rgba(255,79,163,.18);
+      color:#fff;
+      font-weight:900;
+      font-size:14px;
+      box-shadow: 0 14px 28px rgba(255,95,162,.18);
       transition: transform .12s ease, filter .12s ease;
     }
-    .btn:hover{transform: translateY(-1px); filter:saturate(1.05);}
-    .btn:active{transform: translateY(0px) scale(.99);}
-    .btnSecondary{
-      background: rgba(255,255,255,.74);
-      color: var(--text);
-      border: 1px solid var(--stroke);
-      box-shadow: none;
+    .btn:hover{transform:translateY(-1px); filter:saturate(1.05);}
+    .btn:active{transform:translateY(0px) scale(.99);}
+    .btn.secondary{
+      background: rgba(255,255,255,.78);
+      color:var(--text);
+      border:1px solid var(--stroke);
+      box-shadow:none;
     }
-    .mini{
-      font-size:12.5px;
+    .note{
+      margin-top:12px;
       color:var(--muted);
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .mini code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: rgba(255,255,255,.7);
-      border: 1px solid var(--stroke);
-      padding: 2px 8px;
-      border-radius: 999px;
-      color: #3a1247;
+      font-size:12.5px;
+      line-height:1.45;
+      text-align:center;
     }
 
     /* Quiz */
-    .quiz{display:none; gap:10px;}
+    .quiz{display:none;}
     .progressWrap{
       display:flex;
       align-items:center;
-      justify-content:space-between;
       gap:10px;
-      margin-bottom: 8px;
+      margin-bottom:10px;
     }
-    .progressBar{
-      height:9px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid var(--stroke);
-      border-radius: 999px;
+    .progress{
+      height:10px;
+      background: rgba(255,255,255,.65);
+      border:1px solid var(--stroke);
+      border-radius:999px;
       overflow:hidden;
       flex:1;
     }
-    .progressFill{
+    .progress div{
       height:100%;
       width:0%;
       background: linear-gradient(135deg, var(--pink), var(--purple));
-      border-radius: 999px;
+      border-radius:999px;
       transition: width .22s ease;
     }
     .counter{
       font-size:12px;
-      color: var(--muted);
+      color:var(--muted);
       white-space:nowrap;
     }
-    .qText{
-      font-size:20px;
-      margin: 0 0 10px;
+    .qTitle{
+      font-size:22px;
+      margin:0 0 12px;
       letter-spacing:-0.01em;
       line-height:1.25;
     }
-    .answers{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width:720px){
-      .answers{grid-template-columns:1fr}
-    }
-    .ans{
-      text-align:left;
+    .answers{display:grid; gap:12px;}
+    .answer{
+      background: rgba(255,255,255,.80);
+      border:1px solid var(--stroke);
+      border-radius:18px;
       padding:14px 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.76);
-      border: 1px solid var(--stroke);
       cursor:pointer;
-      font-size:14px;
-      line-height:1.25;
-      color: #2f143a;
+      box-shadow: 0 10px 22px rgba(45,10,70,.08);
       transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
-      box-shadow: 0 8px 16px rgba(45,10,70,.08);
     }
-    .ans:hover{
+    .answer:hover{
       transform: translateY(-1px);
-      box-shadow: 0 14px 24px rgba(45,10,70,.12);
-      background: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.90);
+      box-shadow: 0 14px 26px rgba(45,10,70,.11);
     }
-    .ans:active{transform: translateY(0px) scale(.995);}
+    .answer:active{transform: translateY(0px) scale(.995);}
 
     .footerRow{
       display:flex;
@@ -232,69 +248,61 @@
       align-items:center;
       gap:10px;
       flex-wrap:wrap;
-      margin-top: 8px;
+      margin-top: 12px;
     }
     .tinyBtn{
       border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.65);
+      background: rgba(255,255,255,.70);
       color: var(--muted);
       padding:10px 12px;
-      border-radius: 999px;
+      border-radius:999px;
       cursor:pointer;
-      font-weight:800;
+      font-weight:900;
       font-size:12.5px;
     }
-    .tinyBtn:hover{background: rgba(255,255,255,.78);}
+    .tinyBtn:hover{background: rgba(255,255,255,.82);}
 
-    /* Result (minimal) */
+    /* Result */
     .result{display:none;}
     .tag{
       display:inline-flex;
       align-items:center;
       gap:8px;
       padding:8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.74);
-      border: 1px solid var(--stroke);
-      color: var(--muted);
+      border-radius:999px;
+      background: rgba(255,255,255,.78);
+      border:1px solid var(--stroke);
+      color:var(--muted);
       font-size:12px;
       width:fit-content;
+      margin: 0 auto;
     }
     .resultTitle{
-      margin:10px 0 8px;
-      font-size:26px;
+      margin:10px 0 10px;
+      font-size:30px;
       letter-spacing:-0.02em;
-      line-height:1.1;
+      line-height:1.05;
+      text-align:center;
     }
     .resultText{
-      margin:0 0 14px;
-      color: var(--muted);
-      font-size:14.5px;
-      line-height:1.5;
-    }
-    .scoreRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-    .scorePill{
-      padding:10px 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.76);
-      border: 1px solid var(--stroke);
-      color:#3a1247;
-      font-weight:900;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      min-width: 160px;
-    }
-    .softNote{
-      margin-top:12px;
+      margin:0 auto;
       color:var(--muted);
-      font-size:12.5px;
-      line-height:1.45;
+      font-size:15px;
+      line-height:1.55;
+      max-width: 72ch;
+      text-align:center;
+    }
+    .resultBlock{
+      margin:14px auto 0;
+      max-width: 72ch;
+      padding:14px 14px;
+      border-radius:18px;
+      background: rgba(255,255,255,.72);
+      border:1px solid var(--stroke);
+      color:#3a1247;
+      font-size:13.5px;
+      line-height:1.55;
+      text-align:center;
     }
   </style>
 </head>
@@ -306,384 +314,369 @@
         <div class="logo" aria-hidden="true"><span>💖</span></div>
         <div style="min-width:0">
           <h1>Ken, what kind of Barbie do you unlock today?</h1>
-          <p>5 random questions • sweet & real • Barbie-core</p>
+          <p>5 random questions • playful • not obvious • Barbie-core</p>
         </div>
       </div>
-      <div class="pill" title="Daily vibe check">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Vibe Check</span>
-      </div>
+      <div class="pill"><span class="dot" aria-hidden="true"></span><span>Vibe Check</span></div>
     </div>
 
-    <!-- HOME (minimal) -->
-    <section id="home" class="card">
+    <!-- HOME -->
+    <section class="card" id="home">
+      <div class="stickerWrap">
+        <!-- Entry sticker (both.png) -->
+        <img class="sticker" id="homeSticker" src="both.png" alt="Ken & Barbie sticker" />
+      </div>
+
       <h2 class="homeTitle">Hi Ken. 💗</h2>
       <p class="homeSub">
-        Quick check-in: how did you treat Barbie today?
-        Answer honestly. At the end, you’ll unlock either <b>Cute Barbie</b> or <b>Fasti Barbie</b> for today.
+        This is your tiny daily Barbie check-in.
+        No “perfect answers” here — it’s more about your vibe, your timing, and your intentions.
+        Pick what feels most like you today, and let Barbie decide what she’s being for the next 24 hours 😌
       </p>
+
+      <div class="cuteChips">
+        <div class="chip">🎀 Result is either <b>Cute Barbie</b> or <b>Fasti Barbie</b></div>
+        <div class="chip">🎲 5 questions chosen randomly</div>
+        <div class="chip">🫧 Teasing is allowed… but it has rules</div>
+      </div>
 
       <div class="ctaRow">
         <button class="btn" id="startBtn">Start ✨</button>
-        <button class="btn btnSecondary" id="reshuffleBtn" title="New random set for today">New questions 🎲</button>
-        <div class="mini"><span>Bank:</span> <code>30</code> <span>• Today:</span> <code>5</code></div>
+        <button class="btn secondary" id="reshuffleBtn" title="New random set for this run">New questions 🎲</button>
       </div>
 
-      <p class="softNote">
-        P.S. Fasti doesn’t mean “bad”. It means Barbie is… <i>slightly unimpressed</i>. Still adorable though 😌
+      <p class="note">
+        Barbie-friendly reminder: teasing can be cute, but “making Barbie the joke” is a risky hobby, Ken.
+        Choose wisely 😌
       </p>
     </section>
 
     <!-- QUIZ -->
-    <section id="quiz" class="card quiz" aria-live="polite">
+    <section class="card quiz" id="quiz" aria-live="polite">
       <div class="progressWrap">
-        <div class="progressBar" aria-label="Progress">
-          <div class="progressFill" id="progressFill"></div>
-        </div>
+        <div class="progress"><div id="bar"></div></div>
         <div class="counter" id="counter">Question 1 of 5</div>
       </div>
 
-      <h3 class="qText" id="qText">Question goes here</h3>
+      <h3 class="qTitle" id="q">Question</h3>
       <div class="answers" id="answers"></div>
 
       <div class="footerRow">
         <button class="tinyBtn" id="restartBtn" title="Restart with a fresh random set">Restart 🔄</button>
-        <div class="mini">
-          <span>Cute:</span> <code id="cuteScore">0</code>
-          <span>•</span>
-          <span>Fasti:</span> <code id="fastiScore">0</code>
-        </div>
+        <button class="tinyBtn" id="backBtn" title="Back to start">Back ↩︎</button>
       </div>
     </section>
 
-    <!-- RESULT (minimal, no copy/preview) -->
-    <section id="result" class="card result">
-      <div class="tag" id="resultTag">💞 Result</div>
-      <h3 class="resultTitle" id="resultTitle">Today Barbie is...</h3>
-      <p class="resultText" id="resultText"></p>
-
-      <div class="scoreRow">
-        <div class="scorePill"><span>Cute</span><span id="cuteFinal">0</span></div>
-        <div class="scorePill"><span>Fasti</span><span id="fastiFinal">0</span></div>
+    <!-- RESULT -->
+    <section class="card result" id="result">
+      <div class="stickerWrap">
+        <!-- Result sticker swaps: cute.png / fasti.png -->
+        <img class="sticker" id="resultSticker" src="cute.png" alt="Result sticker" />
       </div>
+
+      <div class="tag" id="tag">💞 Result</div>
+      <h2 class="resultTitle" id="title">Today Barbie is…</h2>
+      <p class="resultText" id="text"></p>
+
+      <div class="resultBlock" id="extra"></div>
 
       <div class="ctaRow" style="margin-top:14px">
-        <button class="btn" id="playAgainBtn">Play again 🎀</button>
-        <button class="btn btnSecondary" id="goHomeBtn">Back to start</button>
+        <button class="btn" id="againBtn">Play again 🎀</button>
+        <button class="btn secondary" id="homeBtn">Back to start</button>
       </div>
 
-      <p class="softNote" id="resultNote"></p>
+      <p class="note" id="closingNote"></p>
     </section>
   </div>
 
   <script>
-    // =========================
-    // Question Bank (30) — slightly more intimate / natural
-    // =========================
-    const QUESTION_BANK = [
+    const PER_RUN = 5;
+
+    // Intentionally "grey" scoring so answers don't scream Cute vs Fasti.
+    // Each option gives BOTH cute and fasti points (small differences).
+    // We never display the score — only the final result.
+    const QUESTIONS = [
       {
-        q: "Ken… when Barbie texts you something cute and random, you usually:",
-        a: [
-          { t: "Answer fast and match the energy (yes, with an emoji).", type: "cute" },
-          { t: "Reply sweetly and make her feel like you actually missed her.", type: "cute" },
-          { t: "Read it, smile, then vanish like it’s a talent show.", type: "fasti" },
-          { t: "Hit her with “lol” and call it communication.", type: "fasti" },
+        q:"Ken, when you tease Barbie, it’s usually…",
+        a:[
+          {t:"Light and affectionate — you’re playful, not sharp.", c:0.66, f:0.34},
+          {t:"Confident teasing with a straight face… then you soften it with flirting.", c:0.61, f:0.39},
+          {t:"You test the line a bit, but you read the vibe fast and adjust.", c:0.58, f:0.42},
+          {t:"You lean into the joke, but you think Barbie’s vibe can handle it today.", c:0.56, f:0.44},
         ]
       },
       {
-        q: "Barbie says: “I miss you.” You reply like:",
-        a: [
-          { t: "“Come here. I’ll fix that.” (confident Ken.)", type: "cute" },
-          { t: "“I miss you more.” Simple, effective, hot.", type: "cute" },
-          { t: "“Aww” and then you switch topics. (Ken??)", type: "fasti" },
-          { t: "You leave her on read and start a silence era.", type: "fasti" },
+        q:"If Barbie sends a cute photo, your instinct is to…",
+        a:[
+          {t:"Say something specific you noticed (not just “cute”).", c:0.65, f:0.35},
+          {t:"React first, then come back with a flirty sentence.", c:0.60, f:0.40},
+          {t:"Keep it casual, but make it clear you liked it.", c:0.59, f:0.41},
+          {t:"Be mysterious for a bit, then drop a strong compliment later.", c:0.57, f:0.43},
         ]
       },
       {
-        q: "When Barbie is clearly tired today, you:",
-        a: [
-          { t: "Ask how she’s doing and actually stay present.", type: "cute" },
-          { t: "Send something soft: a voice note / sweet line / comfort meme.", type: "cute" },
-          { t: "Make it about your day instead.", type: "fasti" },
-          { t: "Say “sleep then” with zero warmth.", type: "fasti" },
+        q:"Ken… the ‘ugly sticker’ situation. If you use a sticker on Barbie’s photo, it’s usually…",
+        a:[
+          {t:"A ridiculous one that you also use on yourself — equal opportunity chaos.", c:0.61, f:0.39},
+          {t:"Only the kind that’s obviously a joke, not a dig.", c:0.63, f:0.37},
+          {t:"Once for the laugh, then you follow with something sweet.", c:0.58, f:0.42},
+          {t:"When the vibe is playful — never when Barbie’s already sensitive.", c:0.66, f:0.34},
         ]
       },
       {
-        q: "Your “good morning” energy lately is:",
-        a: [
-          { t: "Short, personal, sweet. (Barbie feels chosen.)", type: "cute" },
-          { t: "A cute meme + “morning Barbie 💖”.", type: "cute" },
-          { t: "No message. Barbie must guess your mood.", type: "fasti" },
-          { t: "A dry “morning” like a work email.", type: "fasti" },
+        q:"If Barbie seems a bit sensitive today, and you still want to tease, you…",
+        a:[
+          {t:"Keep it tiny and immediately add softness after.", c:0.62, f:0.38},
+          {t:"Wait for her cue — she sets the vibe.", c:0.61, f:0.39},
+          {t:"Try one joke and read the room fast.", c:0.57, f:0.43},
+          {t:"Skip teasing and go gentle for the day.", c:0.66, f:0.34},
         ]
       },
       {
-        q: "Barbie sends you a selfie. You:",
-        a: [
-          { t: "Compliment something specific. Immediate green flag.", type: "cute" },
-          { t: "Say she looks unreal. And you mean it.", type: "cute" },
-          { t: "React with 👍 (Ken please).", type: "fasti" },
-          { t: "Wait ages and say “nice”. (criminal.)", type: "fasti" },
+        q:"When Barbie is slightly annoyed, your first move is…",
+        a:[
+          {t:"Soften your tone and keep things easy.", c:0.63, f:0.37},
+          {t:"Make one light joke, then be calm and present.", c:0.60, f:0.40},
+          {t:"Give space, but stay warm (not distant).", c:0.62, f:0.38},
+          {t:"Wait a bit, then come back with a better vibe.", c:0.59, f:0.41},
         ]
       },
       {
-        q: "When you mess up (even a little), you tend to:",
-        a: [
-          { t: "Own it and apologize properly. Mature Ken vibes.", type: "cute" },
-          { t: "Fix it with actions + a sweet message.", type: "cute" },
-          { t: "Act confused: “What did I do?” (classic move).", type: "fasti" },
-          { t: "Go quiet until it magically disappears.", type: "fasti" },
+        q:"If Barbie says “I miss you”, your vibe is…",
+        a:[
+          {t:"Simple but real — and you don’t let it hang.", c:0.62, f:0.38},
+          {t:"Confident flirty reply (with a soft line in it).", c:0.61, f:0.39},
+          {t:"Warm, but you don’t overdo it.", c:0.60, f:0.40},
+          {t:"You reply when you can — then you make up for timing.", c:0.58, f:0.42},
         ]
       },
       {
-        q: "Your reply speed today is best described as:",
-        a: [
-          { t: "Fast enough to make Barbie feel wanted.", type: "cute" },
-          { t: "Normal but consistent (very attractive).", type: "cute" },
-          { t: "Random: 2 minutes or 6 business days.", type: "fasti" },
-          { t: "Rare. Like a solar eclipse.", type: "fasti" },
+        q:"Ken’s reply timing today is…",
+        a:[
+          {t:"Consistent — Barbie doesn’t have to guess.", c:0.62, f:0.38},
+          {t:"A bit chaotic, but the intention is clear.", c:0.58, f:0.42},
+          {t:"Quiet sometimes, but you return warm.", c:0.59, f:0.41},
+          {t:"Busy, but you still do small check-ins.", c:0.61, f:0.39},
         ]
       },
       {
-        q: "When Barbie is excited about something, you:",
-        a: [
-          { t: "Hype her up like her #1 fan.", type: "cute" },
-          { t: "Ask questions and let her talk — you actually listen.", type: "cute" },
-          { t: "Half-listen while doing 3 other things.", type: "fasti" },
-          { t: "Change the topic to your interests.", type: "fasti" },
+        q:"When Barbie sends a voice note, you tend to…",
+        a:[
+          {t:"Reply with the same energy (not necessarily instantly).", c:0.62, f:0.38},
+          {t:"Reply later but in a way that shows you listened.", c:0.60, f:0.40},
+          {t:"Send a short reply first, then a real one when free.", c:0.58, f:0.42},
+          {t:"Match it with a voice note when you can.", c:0.61, f:0.39},
         ]
       },
       {
-        q: "Long-distance days (London ↔ Spain) — you usually:",
-        a: [
-          { t: "Make it feel close anyway. Small effort, big impact.", type: "cute" },
-          { t: "Send check-ins that feel intimate, not forced.", type: "cute" },
-          { t: "Disappear and blame “busy”.", type: "fasti" },
-          { t: "Act like distance means less affection.", type: "fasti" },
+        q:"When Barbie is proud of something, you…",
+        a:[
+          {t:"Celebrate her properly (even if it’s small).", c:0.64, f:0.36},
+          {t:"Say you’re proud and add one specific reason.", c:0.63, f:0.37},
+          {t:"Keep it cool, but make sure she feels supported.", c:0.61, f:0.39},
+          {t:"Hype her up in your subtle Ken way.", c:0.60, f:0.40},
         ]
       },
       {
-        q: "If Barbie says she’s anxious, you:",
-        a: [
-          { t: "Stay calm and reassure her — steady Ken energy.", type: "cute" },
-          { t: "Ask what she needs and follow through.", type: "cute" },
-          { t: "Say “don’t worry” and stop there.", type: "fasti" },
-          { t: "Make a joke that lands… badly.", type: "fasti" },
+        q:"Ken’s “red obsession” moment 🔴 today is…",
+        a:[
+          {t:"A quick inside joke, then you move on like a classy menace.", c:0.60, f:0.40},
+          {t:"You pretend it’s serious for 2 seconds, then laugh.", c:0.58, f:0.42},
+          {t:"You keep it cute — not a full personality trait.", c:0.62, f:0.38},
+          {t:"A dramatic ‘red alert’ but you make Barbie feel included.", c:0.61, f:0.39},
         ]
       },
       {
-        q: "When Barbie is a little quiet, you:",
-        a: [
-          { t: "Check in gently: “You okay, Barbie?”", type: "cute" },
-          { t: "Give space but stay present — no coldness.", type: "cute" },
-          { t: "Ignore it until it turns into drama.", type: "fasti" },
-          { t: "Get defensive like you’re already accused.", type: "fasti" },
+        q:"If Barbie is quiet, your instinct is…",
+        a:[
+          {t:"Check in once, then give space.", c:0.62, f:0.38},
+          {t:"Wait a bit, then ask calmly.", c:0.60, f:0.40},
+          {t:"Send something light and see if she bites.", c:0.58, f:0.42},
+          {t:"Stay kind and avoid overthinking.", c:0.59, f:0.41},
         ]
       },
       {
-        q: "Ken’s texting vibe today is:",
-        a: [
-          { t: "Playful + affectionate. Perfect balance.", type: "cute" },
-          { t: "Soft and flirty — Barbie feels it.", type: "cute" },
-          { t: "Dry. Like crackers with no water.", type: "fasti" },
-          { t: "One-word replies. Barbie is not a survey.", type: "fasti" },
+        q:"If you realize a joke landed wrong, you…",
+        a:[
+          {t:"Fix it immediately and soften the moment.", c:0.64, f:0.36},
+          {t:"Say “okay, my bad” and adjust.", c:0.62, f:0.38},
+          {t:"Give it a minute, then come back gently.", c:0.60, f:0.40},
+          {t:"Smooth it over with extra sweetness after.", c:0.61, f:0.39},
         ]
       },
       {
-        q: "If Barbie is annoyed (just a little), you:",
-        a: [
-          { t: "Notice and soften your tone immediately.", type: "cute" },
-          { t: "Tease gently, then fix it fast.", type: "cute" },
-          { t: "Double down. Bold. Wrong.", type: "fasti" },
-          { t: "Say she’s overreacting. (danger zone.)", type: "fasti" },
+        q:"When Barbie is busy, you…",
+        a:[
+          {t:"Send a warm check-in so she doesn’t feel dropped.", c:0.62, f:0.38},
+          {t:"Reply when you can, then give real attention later.", c:0.60, f:0.40},
+          {t:"Keep it short now, then sweet later.", c:0.59, f:0.41},
+          {t:"Assume she knows you care and carry on.", c:0.56, f:0.44},
         ]
       },
       {
-        q: "Barbie asks a simple question. You:",
-        a: [
-          { t: "Answer clearly and sweetly.", type: "cute" },
-          { t: "Answer + add something thoughtful.", type: "cute" },
-          { t: "Answer vaguely so she has to ask again.", type: "fasti" },
-          { t: "Ignore it and send a meme instead.", type: "fasti" },
+        q:"Your compliment style today is…",
+        a:[
+          {t:"Specific and a little unexpected (in a good way).", c:0.62, f:0.38},
+          {t:"Flirty but still believable.", c:0.60, f:0.40},
+          {t:"Minimal, but it lands.", c:0.58, f:0.42},
+          {t:"You do it later when it’s most effective.", c:0.59, f:0.41},
         ]
       },
       {
-        q: "Your compliment quality today is:",
-        a: [
-          { t: "Specific, sincere, a bit flirty.", type: "cute" },
-          { t: "Soft and romantic without being cheesy.", type: "cute" },
-          { t: "Generic: “nice”.", type: "fasti" },
-          { t: "None. Barbie must survive on oxygen.", type: "fasti" },
+        q:"When Barbie teases you, you…",
+        a:[
+          {t:"Play along and make it fun.", c:0.61, f:0.39},
+          {t:"Act offended for 1 second, then flirt.", c:0.59, f:0.41},
+          {t:"Tease back, but keep it soft.", c:0.60, f:0.40},
+          {t:"Laugh and let her win (sometimes).", c:0.62, f:0.38},
+        ]
+      },
+      // --- more “human-feeling” ones (still grey) ---
+      {
+        q:"If Barbie says “be nice today,” you interpret that as…",
+        a:[
+          {t:"Less roasting, more softness.", c:0.63, f:0.37},
+          {t:"Same teasing, but with extra affection after.", c:0.60, f:0.40},
+          {t:"You’ll keep it calm and stable.", c:0.62, f:0.38},
+          {t:"You’ll be nice… in a slightly mischievous way.", c:0.58, f:0.42},
         ]
       },
       {
-        q: "When Barbie is busy, you:",
-        a: [
-          { t: "Respect it and still make her feel supported.", type: "cute" },
-          { t: "Send one sweet check-in, no pressure.", type: "cute" },
-          { t: "Get passive-aggressive about it.", type: "fasti" },
-          { t: "Spam messages until she replies.", type: "fasti" },
+        q:"When Barbie says something important, you usually…",
+        a:[
+          {t:"Respond in a way that shows you actually got it.", c:0.63, f:0.37},
+          {t:"Ask one follow-up question (quietly impressive).", c:0.62, f:0.38},
+          {t:"React first, then reflect properly later.", c:0.59, f:0.41},
+          {t:"Keep it short, but you stay present.", c:0.60, f:0.40},
         ]
       },
       {
-        q: "Barbie says: “I had a weird day.” You:",
-        a: [
-          { t: "Ask if she wants to talk — and you really mean it.", type: "cute" },
-          { t: "Offer comfort (call / voice note / gentle words).", type: "cute" },
-          { t: "Say “damn” and move on.", type: "fasti" },
-          { t: "Turn it into a debate. Why, Ken.", type: "fasti" },
+        q:"If you go quiet for a while, you come back with…",
+        a:[
+          {t:"A normal message like nothing happened (but warm).", c:0.59, f:0.41},
+          {t:"A quick apology-ish line + a sweet tone.", c:0.61, f:0.39},
+          {t:"A playful message to reset the vibe.", c:0.60, f:0.40},
+          {t:"A strong compliment to make up for it.", c:0.58, f:0.42},
         ]
       },
       {
-        q: "Your emoji game today is:",
-        a: [
-          { t: "Cute and balanced. You’re not scared of 💖.", type: "cute" },
-          { t: "Minimal but meaningful — one 🫶 can fix a lot.", type: "cute" },
-          { t: "None. Emotional desert.", type: "fasti" },
-          { t: "Only 😏 at the wrong times.", type: "fasti" },
+        q:"Ken, if you make Barbie laugh today, it’s mostly because…",
+        a:[
+          {t:"You’re naturally funny (unfair advantage).", c:0.60, f:0.40},
+          {t:"You noticed her mood and chose the right moment.", c:0.62, f:0.38},
+          {t:"You were a bit dramatic on purpose.", c:0.59, f:0.41},
+          {t:"You teased… and then rescued it with sweetness.", c:0.60, f:0.40},
         ]
       },
       {
-        q: "Barbie sends a voice note. You:",
-        a: [
-          { t: "Listen properly and reply warmly.", type: "cute" },
-          { t: "Reply with your own voice note (top tier).", type: "cute" },
-          { t: "Leave it there like homework.", type: "fasti" },
-          { t: "Say “can’t listen rn” forever.", type: "fasti" },
+        q:"If Barbie says “you’re annoying,” you usually…",
+        a:[
+          {t:"Pretend you’re innocent, then soften.", c:0.59, f:0.41},
+          {t:"Ask ‘annoying or cute annoying?’ (risky but sometimes works).", c:0.58, f:0.42},
+          {t:"Back off a bit and come back nicer.", c:0.61, f:0.39},
+          {t:"Say “okay okay” and fix it without drama.", c:0.62, f:0.38},
         ]
       },
       {
-        q: "When you’re wrong, Ken, you:",
-        a: [
-          { t: "Say “You’re right” with zero ego drama.", type: "cute" },
-          { t: "Admit it and make it cute. Barbie melts.", type: "cute" },
-          { t: "Try to win the argument anyway.", type: "fasti" },
-          { t: "Say it’s “not important” now.", type: "fasti" },
+        q:"If Barbie sends a risky-cute message, you…",
+        a:[
+          {t:"Match the vibe with confidence.", c:0.60, f:0.40},
+          {t:"Act cool for a second, then get sweet.", c:0.59, f:0.41},
+          {t:"Reply when you’re free, but you don’t ignore it.", c:0.58, f:0.42},
+          {t:"Tease lightly, then reassure.", c:0.60, f:0.40},
         ]
       },
       {
-        q: "Barbie wants affection today. You:",
-        a: [
-          { t: "Give it — words, attention, softness.", type: "cute" },
-          { t: "Make a tiny plan (call/date idea) and follow through.", type: "cute" },
-          { t: "Say “same” but do nothing.", type: "fasti" },
-          { t: "Make it awkward like she asked for a loan.", type: "fasti" },
+        q:"When you’re flirting, your “line” is usually…",
+        a:[
+          {t:"Direct and simple (no cringe).", c:0.61, f:0.39},
+          {t:"A joke that turns into a compliment.", c:0.60, f:0.40},
+          {t:"A calm message that still feels intimate.", c:0.62, f:0.38},
+          {t:"Slightly dramatic on purpose.", c:0.59, f:0.41},
         ]
       },
       {
-        q: "A tiny jealousy moment happens. You:",
-        a: [
-          { t: "Communicate calmly. Secure Ken energy.", type: "cute" },
-          { t: "Tease lightly and keep it sweet.", type: "cute" },
-          { t: "Accuse loudly with no proof.", type: "fasti" },
-          { t: "Go silent and sulky.", type: "fasti" },
+        q:"If Barbie looks extra pretty today and you notice, you…",
+        a:[
+          {t:"Say it clearly and move on like it’s normal (it’s not).", c:0.61, f:0.39},
+          {t:"Say it with a detail (dangerously effective).", c:0.62, f:0.38},
+          {t:"Keep it short but real.", c:0.60, f:0.40},
+          {t:"Wait and say it later when it hits harder.", c:0.58, f:0.42},
         ]
       },
       {
-        q: "Your planning level lately is:",
-        a: [
-          { t: "You suggest calls/dates and follow through.", type: "cute" },
-          { t: "Not perfect, but reliable. Barbie trusts you.", type: "cute" },
-          { t: "You say “we should” and disappear.", type: "fasti" },
-          { t: "Planning gives you allergies.", type: "fasti" },
+        q:"If Barbie is stressed, you’re more likely to…",
+        a:[
+          {t:"Be steady and calm in your tone.", c:0.62, f:0.38},
+          {t:"Try to lighten the mood first, then be serious.", c:0.60, f:0.40},
+          {t:"Give space but stay warm.", c:0.61, f:0.39},
+          {t:"Ask what she needs (and actually follow it).", c:0.63, f:0.37},
         ]
       },
       {
-        q: "Barbie shares something she’s proud of. You:",
-        a: [
-          { t: "Celebrate her like it’s a holiday.", type: "cute" },
-          { t: "Tell her you’re proud — and say why.", type: "cute" },
-          { t: "React with “cool” and scroll.", type: "fasti" },
-          { t: "Make a joke that steals her moment.", type: "fasti" },
+        q:"When Barbie tells you something small (like a random detail), you…",
+        a:[
+          {t:"Remember it and bring it up later (cute).", c:0.62, f:0.38},
+          {t:"React in the moment and keep it playful.", c:0.60, f:0.40},
+          {t:"Reply short, but you’re still engaged.", c:0.59, f:0.41},
+          {t:"Ask one question and let her talk.", c:0.61, f:0.39},
         ]
       },
       {
-        q: "Your effort to make Barbie smile today is:",
-        a: [
-          { t: "High. You’re trying and it shows.", type: "cute" },
-          { t: "Steady. Small things, consistent.", type: "cute" },
-          { t: "Low. Barbie is carrying the vibe alone.", type: "fasti" },
-          { t: "Negative. You’re testing her patience.", type: "fasti" },
+        q:"If you tease Barbie about something, it’s usually because…",
+        a:[
+          {t:"You like her and you show it weirdly.", c:0.60, f:0.40},
+          {t:"It’s your way of flirting and you assume she knows.", c:0.58, f:0.42},
+          {t:"It’s genuinely funny and you want her to laugh with you.", c:0.61, f:0.39},
+          {t:"You’re bored and chose chaos (respectfully).", c:0.57, f:0.43},
         ]
       },
       {
-        q: "When Barbie is talking, you:",
-        a: [
-          { t: "Listen like she’s your favorite song.", type: "cute" },
-          { t: "Remember little details (Barbie notices).", type: "cute" },
-          { t: "Interrupt and turn it into your story.", type: "fasti" },
-          { t: "Reply late with “huh?”", type: "fasti" },
+        q:"If Barbie is not in the mood for jokes, you…",
+        a:[
+          {t:"Switch to soft mode immediately.", c:0.63, f:0.37},
+          {t:"Drop one gentle line and stop.", c:0.61, f:0.39},
+          {t:"Wait and come back calmer.", c:0.60, f:0.40},
+          {t:"Try one joke anyway, but you’re ready to stop.", c:0.58, f:0.42},
         ]
       },
       {
-        q: "If Barbie asks for reassurance, you:",
-        a: [
-          { t: "Give it warmly. No games.", type: "cute" },
-          { t: "Say something simple and real: “I’m here.”", type: "cute" },
-          { t: "Tease her for needing it.", type: "fasti" },
-          { t: "Avoid it because feelings are scary.", type: "fasti" },
+        q:"Ken, your overall energy today is…",
+        a:[
+          {t:"Warm and playful.", c:0.61, f:0.39},
+          {t:"Confident and a bit teasing.", c:0.59, f:0.41},
+          {t:"Chill but caring.", c:0.60, f:0.40},
+          {t:"A little chaotic but cute about it.", c:0.58, f:0.42},
         ]
-      },
-      {
-        q: "Ken… about your totally harmless red-color obsession 🔴:",
-        a: [
-          { t: "You keep it playful and include Barbie in the joke.", type: "cute" },
-          { t: "You send a cute “red alert” moment and move on.", type: "cute" },
-          { t: "You act like red is your whole personality.", type: "fasti" },
-          { t: "You bring it up in serious moments. Ken. Please.", type: "fasti" },
-        ]
-      },
-      {
-        q: "If Barbie says: “I want more ‘us’,” you:",
-        a: [
-          { t: "Step up gently. Consistency is sexy.", type: "cute" },
-          { t: "Make a small plan and actually do it.", type: "cute" },
-          { t: "Say “okay” and change nothing.", type: "fasti" },
-          { t: "Get defensive like she attacked you.", type: "fasti" },
-        ]
-      },
-      {
-        q: "When Barbie is being extra cute on purpose, you:",
-        a: [
-          { t: "Match it. You don’t leave her hanging.", type: "cute" },
-          { t: "Give her attention and make her feel wanted.", type: "cute" },
-          { t: "Pretend you didn’t notice.", type: "fasti" },
-          { t: "Act too cool for it. (Ken, no.)", type: "fasti" },
-        ]
-      },
+      }
     ];
 
-    // =========================
-    // State
-    // =========================
+    // UI
     const homeEl = document.getElementById("home");
     const quizEl = document.getElementById("quiz");
     const resultEl = document.getElementById("result");
 
+    const qEl = document.getElementById("q");
+    const answersEl = document.getElementById("answers");
+    const counterEl = document.getElementById("counter");
+    const barEl = document.getElementById("bar");
+
+    const tagEl = document.getElementById("tag");
+    const titleEl = document.getElementById("title");
+    const textEl = document.getElementById("text");
+    const extraEl = document.getElementById("extra");
+    const closingNoteEl = document.getElementById("closingNote");
+
+    const resultStickerEl = document.getElementById("resultSticker");
+
     const startBtn = document.getElementById("startBtn");
     const reshuffleBtn = document.getElementById("reshuffleBtn");
     const restartBtn = document.getElementById("restartBtn");
-    const playAgainBtn = document.getElementById("playAgainBtn");
-    const goHomeBtn = document.getElementById("goHomeBtn");
+    const backBtn = document.getElementById("backBtn");
+    const againBtn = document.getElementById("againBtn");
+    const homeBtn = document.getElementById("homeBtn");
 
-    const qTextEl = document.getElementById("qText");
-    const answersEl = document.getElementById("answers");
-    const progressFill = document.getElementById("progressFill");
-    const counterEl = document.getElementById("counter");
-
-    const cuteScoreEl = document.getElementById("cuteScore");
-    const fastiScoreEl = document.getElementById("fastiScore");
-
-    const resultTag = document.getElementById("resultTag");
-    const resultTitle = document.getElementById("resultTitle");
-    const resultText = document.getElementById("resultText");
-    const cuteFinal = document.getElementById("cuteFinal");
-    const fastiFinal = document.getElementById("fastiFinal");
-    const resultNote = document.getElementById("resultNote");
-
-    const PER_RUN = 5;
-
-    let runQuestions = [];
+    let run = [];
     let idx = 0;
     let cute = 0;
     let fasti = 0;
@@ -692,113 +685,105 @@
       const a = arr.slice();
       for(let i=a.length-1;i>0;i--){
         const j = Math.floor(Math.random()*(i+1));
-        [a[i], a[j]] = [a[j], a[i]];
+        [a[i],a[j]]=[a[j],a[i]];
       }
       return a;
     }
 
-    function pickRandomQuestions(){
-      const shuffled = shuffle(QUESTION_BANK);
-      runQuestions = shuffled.slice(0, PER_RUN);
+    function pickRun(){
+      run = shuffle(QUESTIONS).slice(0, PER_RUN);
       idx = 0;
       cute = 0;
       fasti = 0;
-      updateScoreMini();
     }
 
-    function updateScoreMini(){
-      cuteScoreEl.textContent = String(cute);
-      fastiScoreEl.textContent = String(fasti);
-    }
-
-    function renderQuestion(){
-      const qObj = runQuestions[idx];
+    function render(){
       counterEl.textContent = `Question ${idx+1} of ${PER_RUN}`;
-      const pct = Math.round((idx / PER_RUN) * 100);
-      progressFill.style.width = pct + "%";
+      barEl.style.width = Math.round((idx / PER_RUN) * 100) + "%";
 
-      qTextEl.textContent = qObj.q;
+      const q = run[idx];
+      qEl.textContent = q.q;
       answersEl.innerHTML = "";
 
-      qObj.a.forEach((opt) => {
-        const btn = document.createElement("button");
-        btn.className = "ans";
-        btn.type = "button";
-        btn.textContent = opt.t;
-        btn.addEventListener("click", () => {
-          if(opt.type === "cute") cute += 1;
-          else fasti += 1;
-
-          updateScoreMini();
-
-          idx += 1;
-          if(idx >= PER_RUN){
-            progressFill.style.width = "100%";
-            finish();
-          } else {
-            renderQuestion();
-          }
-        });
-        answersEl.appendChild(btn);
-      });
-    }
-
-    function startQuiz(){
-      pickRandomQuestions();
-      homeEl.style.display = "none";
-      resultEl.style.display = "none";
-      quizEl.style.display = "grid";
-      renderQuestion();
-      window.scrollTo({top:0, behavior:"smooth"});
+      const shuffledAnswers = shuffle(q.a);
+      for(const opt of shuffledAnswers){
+        const div = document.createElement("div");
+        div.className = "answer";
+        div.textContent = opt.t;
+        div.onclick = () => {
+          cute += opt.c;
+          fasti += opt.f;
+          idx++;
+          if(idx >= PER_RUN) finish();
+          else render();
+        };
+        answersEl.appendChild(div);
+      }
     }
 
     function finish(){
+      barEl.style.width = "100%";
       quizEl.style.display = "none";
       resultEl.style.display = "block";
 
-      cuteFinal.textContent = String(cute);
-      fastiFinal.textContent = String(fasti);
+      const isCute = (cute >= fasti);
 
-      const isCute = cute >= fasti;
+      // swap image based on result
+      resultStickerEl.src = isCute ? "cute.png" : "fasti.png";
 
       if(isCute){
-        resultTag.textContent = "💗 Cute Barbie";
-        resultTitle.textContent = "Today Barbie is Cute 💕";
-        resultText.textContent =
-          "Ken, you unlocked soft smiles, sweet energy, and extra affection today. " +
-          "Keep this vibe — Barbie definitely felt it.";
-        resultNote.textContent =
-          "Tiny bonus: send Barbie one specific compliment right now. It’ll hit 10x harder than you think 🫶";
+        tagEl.textContent = "💗 Cute Barbie unlocked";
+        titleEl.textContent = "Today Barbie is Cute 💕";
+        textEl.textContent =
+          "Okay Ken… today you’re giving the kind of energy that feels safe and wanted. " +
+          "Not perfect, not scripted — just genuinely sweet in the moments that mattered.";
+        extraEl.textContent =
+          "Cute Barbie rules for the next 24 hours: extra affection, extra softness, and a suspicious amount of flirting. " +
+          "Don’t get cocky though — one random ‘ugly sticker’ and the vibe can flip 😌";
+        closingNoteEl.textContent =
+          "If you want to keep Cute Barbie tomorrow too: one thoughtful check-in at the right time. That’s the spell.";
       } else {
-        resultTag.textContent = "😌 Fasti Barbie";
-        resultTitle.textContent = "Today Barbie is a little Fasti 😌";
-        resultText.textContent =
-          "Ken… today Barbie is slightly unimpressed. Not angry. Just… looking at you with that look. " +
-          "You can still fix it, though.";
-        resultNote.textContent =
-          "Quick repair kit: 1) a sincere check-in, 2) a tiny apology if needed, 3) one sweet line. Do it gently 😌";
+        tagEl.textContent = "😌 Fasti Barbie unlocked";
+        titleEl.textContent = "Today Barbie is a little Fasti 😌";
+        textEl.textContent =
+          "Ken… today your vibe is a bit risky. Not evil. Not cancelled. Just… slightly under-delivered. " +
+          "It’s giving ‘I care, but I’m acting cool’ and Barbie is not fully impressed.";
+        extraEl.textContent =
+          "Fasti Barbie rules: teasing is allowed ONLY if it comes with softness after. " +
+          "If you did the ‘ugly sticker’ thing today… you owe one sincere compliment. Immediately. No negotiations.";
+        closingNoteEl.textContent =
+          "Good news: Fasti Barbie is easy to convert. A real check-in + one sweet line. You know what to do, Ken.";
       }
 
       window.scrollTo({top:0, behavior:"smooth"});
     }
 
-    // Buttons
-    startBtn.addEventListener("click", startQuiz);
-    reshuffleBtn.addEventListener("click", () => {
-      pickRandomQuestions();
-      // stays on home; just changes the set for when he starts
-    });
-    restartBtn.addEventListener("click", startQuiz);
-    playAgainBtn.addEventListener("click", startQuiz);
-    goHomeBtn.addEventListener("click", () => {
+    function start(){
+      pickRun();
+      homeEl.style.display = "none";
       resultEl.style.display = "none";
+      quizEl.style.display = "block";
+      render();
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+
+    function goHome(){
       quizEl.style.display = "none";
+      resultEl.style.display = "none";
       homeEl.style.display = "block";
       window.scrollTo({top:0, behavior:"smooth"});
-    });
+    }
 
-    // Prepare a question set on load
-    pickRandomQuestions();
+    // Buttons
+    startBtn.onclick = start;
+    reshuffleBtn.onclick = () => pickRun();
+    restartBtn.onclick = start;
+    backBtn.onclick = goHome;
+    againBtn.onclick = start;
+    homeBtn.onclick = goHome;
+
+    // Init
+    pickRun();
   </script>
 </body>
 </html>
