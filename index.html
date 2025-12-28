@@ -32,7 +32,7 @@
       justify-content:center;
       padding:22px;
     }
-    .wrap{width:min(860px,100%); display:grid; gap:14px;}
+    .wrap{width:min(900px,100%); display:grid; gap:14px;}
 
     .topbar{
       display:flex; align-items:center; justify-content:space-between; gap:10px;
@@ -96,19 +96,33 @@
 
     .stickerWrap{display:flex; justify-content:center; margin: 4px 0 14px;}
     .sticker{
-      width:min(300px, 76%); height:auto; border-radius:18px;
+      width:min(310px, 78%); height:auto; border-radius:18px;
       filter: drop-shadow(0 18px 26px rgba(45,10,70,.18));
       user-select:none; -webkit-user-drag:none;
     }
 
+    /* HOME */
     .homeTitle{
       font-size:32px; line-height:1.05; margin:0 0 10px;
       letter-spacing:-0.02em; text-align:center;
     }
     .homeSub{
-      margin:0 auto 14px; color:var(--muted); font-size:14.5px;
-      line-height:1.55; max-width: 68ch; text-align:center;
+      margin:0 auto 10px; color:var(--muted); font-size:14.5px;
+      line-height:1.55; max-width: 72ch; text-align:center;
     }
+    .sweetLine{
+      margin: 0 auto 14px;
+      max-width: 72ch;
+      text-align:center;
+      font-size:13px;
+      color: rgba(122,74,138,.95);
+      background: rgba(255,255,255,.68);
+      border: 1px solid var(--stroke);
+      padding: 10px 12px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
     .cuteChips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0; justify-content:center;}
     .chip{
       display:inline-flex; align-items:center; gap:8px;
@@ -137,6 +151,7 @@
     }
     .note{margin-top:12px; color:var(--muted); font-size:12.5px; line-height:1.45; text-align:center;}
 
+    /* QUIZ */
     .quiz{display:none;}
     .progressWrap{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
     .progress{
@@ -150,7 +165,7 @@
       border-radius:999px; transition: width .22s ease;
     }
     .counter{font-size:12px; color:var(--muted); white-space:nowrap;}
-    .qTitle{font-size:22px; margin:0 0 12px; letter-spacing:-0.01em; line-height:1.25;}
+    .qTitle{font-size:22px; margin:0 0 10px; letter-spacing:-0.01em; line-height:1.25;}
     .answers{display:grid; gap:12px;}
     .answer{
       background: rgba(255,255,255,.80);
@@ -176,6 +191,7 @@
     }
     .tinyBtn:hover{background: rgba(255,255,255,.82);}
 
+    /* RESULT */
     .result{display:none;}
     .tag{
       display:inline-flex; align-items:center; gap:8px;
@@ -191,14 +207,14 @@
     }
     .resultText{
       margin:0 auto; color:var(--muted); font-size:15px;
-      line-height:1.55; max-width: 72ch; text-align:center;
+      line-height:1.6; max-width: 76ch; text-align:center;
     }
     .resultBlock{
-      margin:14px auto 0; max-width:72ch;
+      margin:14px auto 0; max-width:76ch;
       padding:14px 14px; border-radius:18px;
       background: rgba(255,255,255,.72);
       border:1px solid var(--stroke);
-      color:#3a1247; font-size:13.5px; line-height:1.55;
+      color:#3a1247; font-size:13.5px; line-height:1.6;
       text-align:center;
     }
   </style>
@@ -214,26 +230,27 @@
           <p>Answer honestly, Ken. Barbie notices the details.</p>
         </div>
       </div>
-      <div class="pill"><span class="dot" aria-hidden="true"></span><span>Vibe Check</span></div>
+      <div class="pill"><span class="dot" aria-hidden="true"></span><span>Today</span></div>
     </div>
 
     <!-- HOME -->
     <section class="card" id="home">
       <div class="stickerWrap">
-        <img class="sticker" id="homeSticker" src="both.png" alt="Ken & Barbie sticker" />
+        <img class="sticker" src="both.png" alt="Ken & Barbie sticker" />
       </div>
 
       <h2 class="homeTitle">Hi Ken. 💗</h2>
       <p class="homeSub">
-        This is your tiny daily Barbie check-in.
-        No “perfect answers” here — it’s more about your vibe, your timing, and your intentions.
-        Pick what feels most like you today, and let Barbie decide what she’s being for the next 24 hours 😌
+        This is a tiny 24-hour vibe check. You’re not being graded like homework —
+        Barbie is just deciding what energy she’s serving you today 😌
       </p>
 
+      <div class="sweetLine" id="homeLine">🎀 One minute. One mood. Don’t fumble, Ken.</div>
+
       <div class="cuteChips">
-        <div class="chip">🎀 Result: <b>Cute Barbie</b> or <b>Fasti Barbie</b></div>
-        <div class="chip">🎲 5 questions picked randomly</div>
-        <div class="chip">🫧 Teasing is allowed… but it has rules</div>
+        <div class="chip">🎲 5 daily-ish questions</div>
+        <div class="chip">🫧 Some answers are… risky in disguise</div>
+        <div class="chip">💗 Barbie can be Cute or Fasti (or… almost)</div>
       </div>
 
       <div class="ctaRow">
@@ -242,8 +259,7 @@
       </div>
 
       <p class="note">
-        Barbie-friendly reminder: teasing can be cute, but “making Barbie the joke” is a risky hobby, Ken.
-        Choose wisely 😌
+        Reminder: teasing is allowed. But making Barbie feel small? That’s how you summon Fasti Barbie.
       </p>
     </section>
 
@@ -254,6 +270,7 @@
         <div class="counter" id="counter">Question 1 of 5</div>
       </div>
 
+      <div class="sweetLine" id="quizLine">💗 Be honest. Barbie can tell when you’re bluffing.</div>
       <h3 class="qTitle" id="q">Question</h3>
       <div class="answers" id="answers"></div>
 
@@ -268,6 +285,8 @@
       <div class="stickerWrap">
         <img class="sticker" id="resultSticker" src="cute.png" alt="Result sticker" />
       </div>
+
+      <div class="sweetLine" id="resultLine">✨ Barbie has decided. Don’t argue with the glitter.</div>
 
       <div class="tag" id="tag">💞 Result</div>
       <h2 class="resultTitle" id="title">Today Barbie is…</h2>
@@ -286,191 +305,256 @@
   <script>
     const PER_RUN = 5;
 
-    // Two-tier results:
-    // 1) Cute Barbie
-    // 2) Cute Barbie (but dangerously close to Fasti)
-    // 3) Fasti Barbie
+    // Sweet one-liners (shown before each question page render)
+    const LINES = [
+      "🎀 Choose wisely, Ken. Barbie is taking notes in glitter ink.",
+      "💗 Today counts. Tomorrow is a different vibe.",
+      "✨ Be honest. Barbie can smell excuses from Spain to London.",
+      "🫧 Softness is a skill. Don’t pretend you don’t have it.",
+      "😌 Teasing is cute… until it isn’t. You know the difference.",
+      "💞 If you’re unsure, pick the option that wouldn’t annoy Barbie.",
+      "🎀 This is not a test. It’s a vibe audit.",
+      "✨ One good message can save your whole day, Ken."
+    ];
+
+    // Scoring model:
+    // Each answer has both C and F (grey on purpose).
+    // We also add a tiny "daily risk" factor to make outcomes less predictable.
     //
-    // We keep scoring "grey" so choices aren't obvious.
+    // Final outcomes:
+    // - Cute Barbie
+    // - Cute Barbie (could flip to Fasti if you mess up)
+    // - Fasti Barbie
+    // - Fasti Barbie (but you can recover fast)
+    //
+    // We do NOT show score. Only the vibe label + cute message.
+
     const QUESTIONS = [
+      // More "daily" and time-based questions (today / last 24 hours)
       {
-        q:"Ken, when you tease Barbie, it’s usually…",
+        q:"In the last 24 hours, your teasing was mostly…",
         a:[
-          {t:"Light and affectionate — playful, not sharp.", c:0.64, f:0.36},
-          {t:"Confident teasing… then you soften it with flirting.", c:0.60, f:0.40},
-          {t:"You read the vibe fast and adjust mid-joke.", c:0.58, f:0.42},
-          {t:"You lean into the joke and trust Barbie’s mood today.", c:0.56, f:0.44},
+          {t:"Light and affectionate — you made Barbie laugh with you.", c:0.62, f:0.38},
+          {t:"Confident teasing… then you softened it with flirting.", c:0.59, f:0.41},
+          {t:"A bit bold, but you read the vibe and adjusted.", c:0.57, f:0.43},
+          {t:"More ‘chaos energy’ than usual (but not malicious).", c:0.55, f:0.45},
         ]
       },
       {
-        q:"If Barbie sends a cute photo, your instinct is to…",
+        q:"Today, when Barbie sent something cute, you…",
         a:[
-          {t:"Say something specific you noticed (not just “cute”).", c:0.63, f:0.37},
-          {t:"React first, then come back with a flirty sentence.", c:0.60, f:0.40},
-          {t:"Keep it casual, but make it clear you liked it.", c:0.59, f:0.41},
-          {t:"Be mysterious for a bit, then drop a strong compliment later.", c:0.57, f:0.43},
+          {t:"Noticed a detail and said it out loud.", c:0.62, f:0.38},
+          {t:"Reacted first, then came back properly later.", c:0.58, f:0.42},
+          {t:"Kept it cool, but didn’t ignore it.", c:0.57, f:0.43},
+          {t:"Took your time… but your reply was warm.", c:0.59, f:0.41},
         ]
       },
       {
-        q:"Ken… the ‘ugly sticker’ situation. If you use a sticker on Barbie’s photo, it’s usually…",
+        q:"Today’s reply timing was…",
         a:[
-          {t:"A ridiculous one you also use on yourself — equal chaos.", c:0.60, f:0.40},
-          {t:"Only the kind that’s obviously a joke, not a dig.", c:0.62, f:0.38},
-          {t:"Once for the laugh, then you follow with something sweet.", c:0.58, f:0.42},
-          {t:"Only when the vibe is playful — never when she’s sensitive.", c:0.64, f:0.36},
+          {t:"Steady — Barbie didn’t have to guess.", c:0.61, f:0.39},
+          {t:"A little chaotic, but you still checked in.", c:0.57, f:0.43},
+          {t:"Quiet at times, but you returned with warmth.", c:0.58, f:0.42},
+          {t:"Busy day — you did one meaningful message.", c:0.59, f:0.41},
         ]
       },
       {
-        q:"If Barbie seems a bit sensitive today, and you still want to tease, you…",
+        q:"If Barbie felt slightly sensitive today, you…",
         a:[
-          {t:"Keep it tiny and immediately add softness after.", c:0.61, f:0.39},
-          {t:"Wait for her cue — she sets the vibe.", c:0.60, f:0.40},
-          {t:"Try one joke and read the room fast.", c:0.57, f:0.43},
-          {t:"Skip teasing and go gentle for the day.", c:0.64, f:0.36},
+          {t:"Switched to soft mode immediately.", c:0.62, f:0.38},
+          {t:"Teased lightly, then reassured.", c:0.58, f:0.42},
+          {t:"Waited for her cue before joking.", c:0.60, f:0.40},
+          {t:"Did one risky joke… but you were ready to stop.", c:0.56, f:0.44},
         ]
       },
       {
-        q:"When Barbie is slightly annoyed, your first move is…",
+        q:"The ‘ugly sticker’ situation (today or recently): if it happened, it was…",
         a:[
-          {t:"Soften your tone and keep things easy.", c:0.61, f:0.39},
-          {t:"Make one light joke, then be calm and present.", c:0.59, f:0.41},
-          {t:"Give space, but stay warm (not distant).", c:0.60, f:0.40},
-          {t:"Wait a bit, then come back with a better vibe.", c:0.58, f:0.42},
+          {t:"A ridiculous one you also use on yourself — fair chaos.", c:0.59, f:0.41},
+          {t:"Only when the vibe was playful, never when she’s down.", c:0.62, f:0.38},
+          {t:"Once for the laugh, then you followed with sweetness.", c:0.57, f:0.43},
+          {t:"A bold move… but you thought it would land today.", c:0.55, f:0.45},
         ]
       },
       {
-        q:"If Barbie says “I miss you”, your vibe is…",
+        q:"Today, if Barbie was a bit annoyed, you…",
         a:[
-          {t:"Simple but real — and you don’t let it hang.", c:0.61, f:0.39},
-          {t:"Confident flirty reply (with a soft line in it).", c:0.60, f:0.40},
-          {t:"Warm, but you don’t overdo it.", c:0.59, f:0.41},
-          {t:"You reply when you can — then you make up for timing.", c:0.57, f:0.43},
+          {t:"Softened your tone and kept it easy.", c:0.61, f:0.39},
+          {t:"Did one light joke, then got calm and present.", c:0.58, f:0.42},
+          {t:"Gave space, but stayed warm.", c:0.59, f:0.41},
+          {t:"Waited, then came back with a better vibe.", c:0.57, f:0.43},
         ]
       },
       {
-        q:"Ken’s reply timing today is…",
+        q:"In the last day, you made Barbie feel…",
         a:[
-          {t:"Consistent — Barbie doesn’t have to guess.", c:0.61, f:0.39},
-          {t:"A bit chaotic, but the intention is clear.", c:0.57, f:0.43},
-          {t:"Quiet sometimes, but you return warm.", c:0.58, f:0.42},
-          {t:"Busy, but you still do small check-ins.", c:0.60, f:0.40},
+          {t:"Seen. Like you actually noticed her.", c:0.62, f:0.38},
+          {t:"Wanted — in a calm, confident way.", c:0.60, f:0.40},
+          {t:"Entertained — even if a bit chaotic.", c:0.57, f:0.43},
+          {t:"Curious — like you’re building tension.", c:0.58, f:0.42},
         ]
       },
       {
-        q:"When Barbie sends a voice note, you tend to…",
+        q:"Today’s flirting level was…",
         a:[
-          {t:"Reply with the same energy (not necessarily instantly).", c:0.60, f:0.40},
-          {t:"Reply later but in a way that shows you listened.", c:0.59, f:0.41},
-          {t:"Send a short reply first, then a real one when free.", c:0.57, f:0.43},
-          {t:"Match it with a voice note when you can.", c:0.60, f:0.40},
+          {t:"Simple but effective (no cringe).", c:0.60, f:0.40},
+          {t:"Playful and a bit teasing.", c:0.58, f:0.42},
+          {t:"Low-key, but real.", c:0.59, f:0.41},
+          {t:"Late, but stronger when it arrived.", c:0.57, f:0.43},
         ]
       },
       {
-        q:"When Barbie is proud of something, you…",
+        q:"If Barbie said “I miss you” today, your reply would be…",
         a:[
-          {t:"Celebrate her properly (even if it’s small).", c:0.62, f:0.38},
-          {t:"Say you’re proud and add one specific reason.", c:0.61, f:0.39},
-          {t:"Keep it cool, but make sure she feels supported.", c:0.60, f:0.40},
-          {t:"Hype her up in your subtle Ken way.", c:0.59, f:0.41},
+          {t:"Immediate softness, no games.", c:0.62, f:0.38},
+          {t:"Flirty… but you still mean it.", c:0.59, f:0.41},
+          {t:"Warm, but you keep it cool.", c:0.58, f:0.42},
+          {t:"A little later, but extra sweet.", c:0.59, f:0.41},
         ]
       },
       {
-        q:"Ken’s “red obsession” moment 🔴 today is…",
+        q:"Ken’s ‘red obsession’ moment 🔴 today was…",
         a:[
-          {t:"A quick inside joke, then you move on like a classy menace.", c:0.59, f:0.41},
-          {t:"You pretend it’s serious for 2 seconds, then laugh.", c:0.57, f:0.43},
-          {t:"You keep it cute — not a full personality trait.", c:0.60, f:0.40},
-          {t:"A dramatic ‘red alert’ but you make Barbie feel included.", c:0.60, f:0.40},
+          {t:"A quick inside joke, then you moved on like a prince.", c:0.58, f:0.42},
+          {t:"Dramatic for 2 seconds, then you laughed.", c:0.56, f:0.44},
+          {t:"Cute and harmless — not a whole personality.", c:0.60, f:0.40},
+          {t:"A red alert… but you made Barbie feel included.", c:0.59, f:0.41},
         ]
       },
       {
-        q:"If Barbie is quiet, your instinct is…",
+        q:"Today, when Barbie said something important, you…",
         a:[
-          {t:"Check in once, then give space.", c:0.60, f:0.40},
-          {t:"Wait a bit, then ask calmly.", c:0.59, f:0.41},
-          {t:"Send something light and see if she bites.", c:0.57, f:0.43},
-          {t:"Stay kind and avoid overthinking.", c:0.58, f:0.42},
+          {t:"Replied in a way that showed you got it.", c:0.61, f:0.39},
+          {t:"Asked one follow-up question.", c:0.60, f:0.40},
+          {t:"Reacted fast, reflected later.", c:0.57, f:0.43},
+          {t:"Kept it short but stayed present.", c:0.58, f:0.42},
         ]
       },
       {
-        q:"If you realize a joke landed wrong, you…",
+        q:"If Barbie was quiet today, you…",
         a:[
-          {t:"Fix it immediately and soften the moment.", c:0.62, f:0.38},
-          {t:"Say “okay, my bad” and adjust.", c:0.61, f:0.39},
-          {t:"Give it a minute, then come back gently.", c:0.59, f:0.41},
-          {t:"Smooth it over with extra sweetness after.", c:0.60, f:0.40},
+          {t:"Checked in once, then gave space.", c:0.60, f:0.40},
+          {t:"Waited a bit, then asked calmly.", c:0.59, f:0.41},
+          {t:"Sent something light to reset the vibe.", c:0.57, f:0.43},
+          {t:"Stayed chill and didn’t overthink.", c:0.58, f:0.42},
         ]
       },
       {
-        q:"When Barbie is busy, you…",
+        q:"If a joke landed wrong today, you…",
         a:[
-          {t:"Send a warm check-in so she doesn’t feel dropped.", c:0.60, f:0.40},
-          {t:"Reply when you can, then give real attention later.", c:0.59, f:0.41},
-          {t:"Keep it short now, then sweet later.", c:0.58, f:0.42},
-          {t:"Assume she knows you care and carry on.", c:0.56, f:0.44},
+          {t:"Fixed it quickly and softened the moment.", c:0.62, f:0.38},
+          {t:"Said ‘okay, my bad’ and adjusted.", c:0.61, f:0.39},
+          {t:"Let it breathe, then came back gentle.", c:0.58, f:0.42},
+          {t:"Smoothed it over with extra sweetness after.", c:0.59, f:0.41},
         ]
       },
       {
-        q:"Your compliment style today is…",
+        q:"Today your ‘effort level’ was…",
         a:[
-          {t:"Specific and a little unexpected (in a good way).", c:0.60, f:0.40},
-          {t:"Flirty but still believable.", c:0.59, f:0.41},
-          {t:"Minimal, but it lands.", c:0.58, f:0.42},
-          {t:"You do it later when it’s most effective.", c:0.57, f:0.43},
+          {t:"Small but consistent (quietly impressive).", c:0.60, f:0.40},
+          {t:"A bit chaotic, but the intention was real.", c:0.57, f:0.43},
+          {t:"Low-key — you’ll make up for it soon.", c:0.55, f:0.45},
+          {t:"High effort in the moments that mattered.", c:0.61, f:0.39},
         ]
       },
       {
-        q:"When Barbie teases you, you…",
+        q:"Today, if you used teasing, it was mostly because…",
         a:[
-          {t:"Play along and make it fun.", c:0.59, f:0.41},
-          {t:"Act offended for 1 second, then flirt.", c:0.58, f:0.42},
-          {t:"Tease back, but keep it soft.", c:0.59, f:0.41},
-          {t:"Laugh and let her win (sometimes).", c:0.60, f:0.40},
+          {t:"You were flirting and you kept it soft.", c:0.59, f:0.41},
+          {t:"It was genuinely funny and you wanted her to laugh.", c:0.60, f:0.40},
+          {t:"You were bored and chose respectful chaos.", c:0.56, f:0.44},
+          {t:"You liked the reaction a bit too much (danger).", c:0.54, f:0.46},
         ]
       },
       {
-        q:"If Barbie says “be nice today,” you interpret that as…",
+        q:"If Barbie called you “annoying” today, you…",
         a:[
-          {t:"Less roasting, more softness.", c:0.61, f:0.39},
-          {t:"Same teasing, but with extra affection after.", c:0.59, f:0.41},
-          {t:"Keep it calm and stable.", c:0.60, f:0.40},
-          {t:"Be nice… in a slightly mischievous way.", c:0.57, f:0.43},
+          {t:"Backed off a little and came back nicer.", c:0.60, f:0.40},
+          {t:"Asked ‘annoying or cute annoying?’ (risky).", c:0.55, f:0.45},
+          {t:"Pretended you’re innocent, then softened.", c:0.57, f:0.43},
+          {t:"Fixed it without drama.", c:0.61, f:0.39},
         ]
       },
       {
-        q:"When Barbie says something important, you usually…",
+        q:"Today, your compliments were…",
         a:[
-          {t:"Respond in a way that shows you actually got it.", c:0.60, f:0.40},
-          {t:"Ask one follow-up question (quietly impressive).", c:0.60, f:0.40},
-          {t:"React first, then reflect properly later.", c:0.58, f:0.42},
-          {t:"Keep it short, but you stay present.", c:0.59, f:0.41},
+          {t:"Specific and believable.", c:0.61, f:0.39},
+          {t:"Short but effective.", c:0.59, f:0.41},
+          {t:"Flirty but not overdone.", c:0.60, f:0.40},
+          {t:"Rare… but you’ll do it later.", c:0.56, f:0.44},
         ]
       },
       {
-        q:"If you go quiet for a while, you come back with…",
+        q:"If Barbie had a stressful moment today, you…",
         a:[
-          {t:"A normal message like nothing happened (but warm).", c:0.58, f:0.42},
-          {t:"A quick ‘my bad’ line + a sweet tone.", c:0.60, f:0.40},
-          {t:"A playful message to reset the vibe.", c:0.59, f:0.41},
-          {t:"A strong compliment to make up for it.", c:0.57, f:0.43},
+          {t:"Stayed steady and calm in your tone.", c:0.61, f:0.39},
+          {t:"Lightened the mood first, then got serious.", c:0.58, f:0.42},
+          {t:"Gave space but stayed warm.", c:0.59, f:0.41},
+          {t:"Asked what she needed (and followed it).", c:0.62, f:0.38},
         ]
       },
       {
-        q:"If Barbie says “you’re annoying,” you usually…",
+        q:"Today’s ‘distance’ (London ↔ Spain) vibe was…",
         a:[
-          {t:"Pretend you’re innocent, then soften.", c:0.58, f:0.42},
-          {t:"Ask ‘annoying or cute annoying?’ (risky but sometimes works).", c:0.56, f:0.44},
-          {t:"Back off a bit and come back nicer.", c:0.60, f:0.40},
-          {t:"Say “okay okay” and fix it without drama.", c:0.61, f:0.39},
+          {t:"You made it feel smaller with consistency.", c:0.61, f:0.39},
+          {t:"You were busy, but still present.", c:0.59, f:0.41},
+          {t:"A bit quiet — but warm when you showed up.", c:0.57, f:0.43},
+          {t:"You leaned into mystery today.", c:0.56, f:0.44},
         ]
       },
       {
-        q:"If Barbie sends a risky-cute message, you…",
+        q:"In the last 24 hours, your energy was…",
         a:[
-          {t:"Match the vibe with confidence.", c:0.59, f:0.41},
-          {t:"Act cool for a second, then get sweet.", c:0.58, f:0.42},
-          {t:"Reply when you’re free, but you don’t ignore it.", c:0.57, f:0.43},
-          {t:"Tease lightly, then reassure.", c:0.58, f:0.42},
+          {t:"Warm and playful.", c:0.60, f:0.40},
+          {t:"Chill but caring.", c:0.59, f:0.41},
+          {t:"Confident and a bit teasing.", c:0.58, f:0.42},
+          {t:"Chaotic but cute about it.", c:0.56, f:0.44},
+        ]
+      },
+      // More daily “micro-behavior” prompts:
+      {
+        q:"Today, your ‘check-in’ was…",
+        a:[
+          {t:"A real one — not just an emoji drive-by.", c:0.61, f:0.39},
+          {t:"Short, but it showed intention.", c:0.59, f:0.41},
+          {t:"You forgot once, but you came back warm.", c:0.56, f:0.44},
+          {t:"You stayed quiet and hoped she’d feel it telepathically.", c:0.54, f:0.46},
+        ]
+      },
+      {
+        q:"If you teased Barbie about her photo today, it was…",
+        a:[
+          {t:"A soft joke that still made her feel pretty.", c:0.61, f:0.39},
+          {t:"A bold joke, but you followed with a compliment.", c:0.58, f:0.42},
+          {t:"A ‘you had to be there’ joke (risk).", c:0.56, f:0.44},
+          {t:"You didn’t tease — you were sweet today.", c:0.62, f:0.38},
+        ]
+      },
+      {
+        q:"Today, you handled her mood by…",
+        a:[
+          {t:"Matching her energy respectfully.", c:0.60, f:0.40},
+          {t:"Keeping it playful, but ready to switch soft.", c:0.58, f:0.42},
+          {t:"Being calm and stable.", c:0.61, f:0.39},
+          {t:"Letting her lead while you stayed warm.", c:0.59, f:0.41},
+        ]
+      },
+      {
+        q:"If Barbie gave you a hint today (like ‘be nice’), you…",
+        a:[
+          {t:"Actually listened and adjusted.", c:0.61, f:0.39},
+          {t:"Listened… after one last joke (risky).", c:0.56, f:0.44},
+          {t:"Kept it calm and sweet.", c:0.60, f:0.40},
+          {t:"Didn’t fully clock it, but you meant well.", c:0.55, f:0.45},
+        ]
+      },
+      {
+        q:"Today, the vibe of your teasing was…",
+        a:[
+          {t:"‘Laugh WITH me’ not ‘laugh AT you’.", c:0.62, f:0.38},
+          {t:"A bit sharp at first, softer after.", c:0.57, f:0.43},
+          {t:"Mostly fine, borderline sometimes.", c:0.56, f:0.44},
+          {t:"You didn’t tease — you were cute today.", c:0.61, f:0.39},
         ]
       }
     ];
@@ -492,6 +576,10 @@
     const closingNoteEl = document.getElementById("closingNote");
     const resultStickerEl = document.getElementById("resultSticker");
 
+    const homeLineEl = document.getElementById("homeLine");
+    const quizLineEl = document.getElementById("quizLine");
+    const resultLineEl = document.getElementById("resultLine");
+
     const startBtn = document.getElementById("startBtn");
     const reshuffleBtn = document.getElementById("reshuffleBtn");
     const restartBtn = document.getElementById("restartBtn");
@@ -504,6 +592,13 @@
     let cute = 0;
     let fasti = 0;
 
+    // A tiny randomness to mimic "today's mood" so the same answers
+    // can land slightly different across days.
+    function dailyMoodNoise(){
+      // between -0.04 and +0.04
+      return (Math.random() * 0.08) - 0.04;
+    }
+
     function shuffle(arr){
       const a = arr.slice();
       for(let i=a.length-1;i>0;i--){
@@ -513,16 +608,23 @@
       return a;
     }
 
+    function pickLine(){
+      return LINES[Math.floor(Math.random() * LINES.length)];
+    }
+
     function pickRun(){
       run = shuffle(QUESTIONS).slice(0, PER_RUN);
       idx = 0;
       cute = 0;
       fasti = 0;
+      homeLineEl.textContent = pickLine();
     }
 
     function render(){
       counterEl.textContent = `Question ${idx+1} of ${PER_RUN}`;
       barEl.style.width = Math.round((idx / PER_RUN) * 100) + "%";
+
+      quizLineEl.textContent = pickLine();
 
       const q = run[idx];
       qEl.textContent = q.q;
@@ -534,8 +636,11 @@
         div.className = "answer";
         div.textContent = opt.t;
         div.onclick = () => {
-          cute += opt.c;
-          fasti += opt.f;
+          // Add small daily noise so the same patterns aren't always identical
+          const n = dailyMoodNoise();
+          cute += (opt.c + n);
+          fasti += (opt.f - n);
+
           idx++;
           if(idx >= PER_RUN) finish();
           else render();
@@ -548,53 +653,85 @@
       barEl.style.width = "100%";
       quizEl.style.display = "none";
       resultEl.style.display = "block";
+      resultLineEl.textContent = pickLine();
 
       const diff = cute - fasti;
 
-      // Thresholds:
-      // diff >= 0.18  => Cute
-      // 0 < diff < 0.18 => Cute but close to Fasti
-      // diff <= 0     => Fasti
-      const isFasti = diff <= 0;
-      const isBorderlineCute = diff > 0 && diff < 0.18;
-      const isCute = diff >= 0.18;
+      // Four vibe labels (2 main + "could flip" flavor):
+      // - Cute Barbie (stable)
+      // - Cute Barbie (could flip to Fasti)
+      // - Fasti Barbie (stable)
+      // - Fasti Barbie (but could recover to Cute)
+      //
+      // Thresholds tuned to make Fasti easier than before.
+      const CUTE_STABLE = 0.22;
+      const CUTE_BORDER = 0.06;  // if diff is between 0.06 and 0.22 -> Cute but could flip
+      const FASTI_BORDER = -0.10; // if diff between -0.10 and 0.06 -> Fasti-ish zone (recoverable)
+      // diff <= -0.10 -> stable fasti
 
-      if(isFasti){
+      const vibe =
+        (diff >= CUTE_STABLE) ? "CUTE_STABLE" :
+        (diff >= CUTE_BORDER) ? "CUTE_CLOSE_TO_FASTI" :
+        (diff > FASTI_BORDER) ? "FASTI_CLOSE_TO_CUTE" :
+        "FASTI_STABLE";
+
+      if(vibe === "FASTI_STABLE"){
         resultStickerEl.src = "fasti.png";
-        tagEl.textContent = "😌 Fasti Barbie unlocked";
-        titleEl.textContent = "Today Barbie is a little Fasti 😌";
+        tagEl.textContent = "😌 Fasti Barbie (stable)";
+        titleEl.textContent = "Today Barbie is Fasti 😌";
         textEl.textContent =
-          "Ken… today your vibe is a bit risky. Not evil. Not cancelled. Just… slightly under-delivered. " +
-          "It’s giving ‘I care, but I’m acting cool’ and Barbie is not fully impressed.";
+          "Ken… today Barbie’s patience is on airplane mode. You weren’t horrible, you were just… a little too confident with the teasing, " +
+          "or a little too casual with the effort. Barbie noticed.";
         extraEl.textContent =
-          "Fasti Barbie rules: teasing is allowed ONLY if it comes with softness after. " +
-          "If you did the ‘ugly sticker’ thing today… you owe one sincere compliment. Immediately. No negotiations.";
+          "For the next 24 hours: if you want softness, you need to earn it. " +
+          "No ‘ugly sticker’ crimes, no random disappearing, no playful disrespect. " +
+          "One sincere compliment + one warm check-in is the minimum entry fee.";
         closingNoteEl.textContent =
-          "Good news: Fasti Barbie is easy to convert. One sincere message. One soft moment. Timing matters, Ken.";
-      } else if(isBorderlineCute){
-        resultStickerEl.src = "cute.png";
-        tagEl.textContent = "💗 Cute Barbie (but careful)";
-        titleEl.textContent = "Today Barbie is Cute… but you're on thin ice 💗😌";
+          "You can recover tomorrow. Today? Move carefully, Ken.";
+      }
+
+      if(vibe === "FASTI_CLOSE_TO_CUTE"){
+        resultStickerEl.src = "fasti.png";
+        tagEl.textContent = "😌 Fasti Barbie (but you can recover)";
+        titleEl.textContent = "Today Barbie is Fasti… but it’s reversible 😌💗";
         textEl.textContent =
-          "Okay Ken… you unlocked Cute Barbie today. But don’t get too comfortable — the vibe was *this* close to Fasti. " +
-          "You did enough sweetness to win the day, but the teasing-to-softness ratio? Slightly suspicious.";
+          "Ken… Barbie is *slightly* fasti today, but not fully locked in. " +
+          "This is the kind of day where one good message can flip the whole vibe. " +
+          "You’re closer to Cute than you think — if you stop playing it cool.";
         extraEl.textContent =
-          "Cute Barbie rules: you get affection, flirting, and extra patience… for now. " +
-          "But one poorly-timed joke or one unnecessary sticker and Barbie will switch modes in 0.2 seconds.";
+          "For the next 24 hours: keep teasing gentle, add softness immediately after, and do one thoughtful check-in. " +
+          "If you were the ‘ugly sticker’ Ken today… you owe a real compliment, not a ‘lol’.";
         closingNoteEl.textContent =
-          "If you want to secure ‘fully Cute’ tomorrow: one thoughtful check-in at the right time. That’s the spell.";
-      } else { // isCute
+          "Do the right thing and Barbie might switch to Cute *mid-day*. No pressure.";
+      }
+
+      if(vibe === "CUTE_CLOSE_TO_FASTI"){
         resultStickerEl.src = "cute.png";
-        tagEl.textContent = "💗 Cute Barbie unlocked";
+        tagEl.textContent = "💗 Cute Barbie (but don’t get comfortable)";
+        titleEl.textContent = "Today Barbie is Cute… but she can flip 😌💗";
+        textEl.textContent =
+          "Okay Ken… you unlocked Cute Barbie today. But it was close. " +
+          "You did enough sweetness to win the day, but the teasing-to-softness ratio was… suspiciously balanced.";
+        extraEl.textContent =
+          "For the next 24 hours: you get affection, flirting, and extra patience — for now. " +
+          "But one poorly-timed joke, one unnecessary sticker, or one ‘disappear and come back like nothing happened’ " +
+          "and Barbie will switch modes instantly.";
+        closingNoteEl.textContent =
+          "If you want to secure ‘fully Cute’: one thoughtful check-in at the right time. That’s the spell.";
+      }
+
+      if(vibe === "CUTE_STABLE"){
+        resultStickerEl.src = "cute.png";
+        tagEl.textContent = "💗 Cute Barbie (stable)";
         titleEl.textContent = "Today Barbie is Cute 💕";
         textEl.textContent =
-          "Okay Ken… today you’re giving the kind of energy that feels safe and wanted. " +
-          "Not perfect, not scripted — just genuinely sweet in the moments that mattered.";
+          "Ken… today your energy feels safe and wanted. Not perfect, not scripted — just genuinely sweet in the moments that mattered. " +
+          "Barbie feels seen. That’s the whole secret.";
         extraEl.textContent =
-          "Cute Barbie rules for the next 24 hours: extra affection, extra softness, and a suspicious amount of flirting. " +
-          "You’re doing well. Keep the vibe clean, Ken 😌";
+          "For the next 24 hours: you’re getting maximum Cute Barbie. Extra softness. Extra flirting. Extra warmth. " +
+          "Just don’t do anything dramatic for no reason (you know yourself).";
         closingNoteEl.textContent =
-          "If you want to keep this tomorrow too: one thoughtful check-in at the right time. That’s the spell.";
+          "If you want to keep this tomorrow too: consistency + one thoughtful check-in. Easy. Don’t sabotage it, Ken.";
       }
 
       window.scrollTo({top:0, behavior:"smooth"});
@@ -613,6 +750,7 @@
       quizEl.style.display = "none";
       resultEl.style.display = "none";
       homeEl.style.display = "block";
+      homeLineEl.textContent = pickLine();
       window.scrollTo({top:0, behavior:"smooth"});
     }
 
@@ -629,4 +767,5 @@
   </script>
 </body>
 </html>
+
 
